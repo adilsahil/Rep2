@@ -1,0 +1,116 @@
+﻿<Window x:Class="UIDummy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:UIDummy" WindowStartupLocation="CenterScreen"
+        xmlns:UIcontrol="clr-namespace:UIControls.UserControls;assembly=UIControls"
+        Title="MainWindow" Height="860" Width="1400" AllowsTransparency="True" Background="#90000000" WindowStyle="None">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/UIControls;component/ControlStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="TextBoxUserStyle" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Width" Value="225"/>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="AllowDrop" Value="true"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border x:Name="OuterBorder" BorderBrush="#5AFFFFFF" BorderThickness="1,1,1,1" CornerRadius="0,0,0,0">
+                                <Border x:Name="InnerBorder" Background="#FFFFFFFF" BorderBrush="#33000000" BorderThickness="1,1,1,1" CornerRadius="0,0,0,0">
+                                    <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="PART_ContentHost"/>
+                                </Border>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="PasswordBoxStyle" BasedOn="{x:Null}" TargetType="{x:Type PasswordBox}">
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Width" Value="225"/>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="AllowDrop" Value="true"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type PasswordBox}">
+                            <Border x:Name="OuterBorder" BorderBrush="#5AFFFFFF" BorderThickness="1,1,1,1" CornerRadius="0,0,0,0">
+                                <Border x:Name="InnerBorder" Background="#FFFFFFFF" BorderBrush="#33000000" BorderThickness="1,1,1,1" CornerRadius="0,0,0,0">
+                                    <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="PART_ContentHost"/>
+                                </Border>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+       
+    </Window.Resources>
+    <Viewbox>
+        <Grid Width="2446" Height="800">
+            <StackPanel Margin="0,166,0,85" Background="#FF087393"></StackPanel>
+            <StackPanel Margin="818,228,627,157" Background="#4607526C" Orientation="Horizontal">
+                <StackPanel.BitmapEffect>
+                    <DropShadowBitmapEffect></DropShadowBitmapEffect>
+                </StackPanel.BitmapEffect>
+                <StackPanel Width="178"></StackPanel>
+                <StackPanel>
+                    <Label Height="53"></Label>
+                <Image Source="/UIDummy;component/Images/aa.jpg" Width="86" Height="80" HorizontalAlignment="Left" Margin="5,0,0,0"></Image>
+                <StackPanel  Orientation="Horizontal">
+                        <TextBox  Width="470"  VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="26" x:Name="txtUserName"  Height="69" Style="{StaticResource TextBoxUserStyle}" MaxLength="15" GotFocus="text_GotFocus" PreviewKeyDown="txtUserName_PreviewKeyDown" Foreground="#FFDA21FF"></TextBox>
+                    <TextBlock IsHitTestVisible="False" Text="Enter user name" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-465,0,0,0" Foreground="DarkGray" Width="200" FontStyle="Italic">
+        <TextBlock.Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Visibility" Value="Collapsed"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Text, ElementName=txtUserName}" Value="">
+                        <Setter Property="Visibility" Value="Visible"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </TextBlock.Style></TextBlock>
+                    <Border Width="178" Height="69" Background="#FF341313" Margin="-9,0,0,0"></Border>
+                </StackPanel>
+                <ListBox x:Name="lbSuggestion" SelectionChanged="lbSuggestion_SelectionChanged" ItemContainerStyle="{StaticResource lstBoxItemContStyle}" Background="White" Grid.Row="1" Visibility="Collapsed"    HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Margin="5,-4,10,0" Foreground="#FFDA21FF" />
+                <StackPanel  Orientation="Horizontal" Height="84" VerticalAlignment="Bottom">
+                    <PasswordBox x:Name="passwrdEntry" Width="469" Height="71"  FontSize="26" Style="{StaticResource PasswordBoxStyle}" PasswordChanged="passwrdEntry_PasswordChanged" KeyDown="passwrdEntry_KeyDown" PreviewKeyDown="passwrdEntry_PreviewKeyDown" MaxLength="15" GotFocus="text_GotFocus"></PasswordBox>
+                    <TextBlock x:Name="txtPasswtr" IsHitTestVisible="False"  FontSize="26" Text="Enter Password" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-465,0,0,0" Foreground="DarkGray" FontStyle="Italic">
+             <TextBlock.Style>
+              <Style TargetType="{x:Type TextBlock}">
+                 <Setter Property="Visibility" Value="Collapsed"/>
+                 <Style.Triggers>
+                    <DataTrigger Binding="{Binding Password, ElementName=passwrdEntry}" Value="">
+                        <Setter  Property="Visibility" Value="Visible"/>
+                    </DataTrigger>
+                     <DataTrigger Binding="{Binding Password, ElementName=passwrdEntry}" Value="passwrdEntry.Text">
+                        <Setter  Property="Visibility" Value="Hidden"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </TextBlock.Style></TextBlock>
+                    <Button Content="Login...." Name="btnLogin" Style="{StaticResource messageButton}" Margin="-9,0,0,0" Height="70"  HorizontalAlignment="Left" Width="178" Click="btnLogin_Click" FontSize="28" FontStyle="Italic" />
+                </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <UIcontrol:CircularProgressBar Name="crcProgress" Height="70" Foreground="#FF07FF07"  Margin="12"  HorizontalAlignment="Left"></UIcontrol:CircularProgressBar>
+                        <Label Name="lblError" Content="" VerticalAlignment="Center" Foreground="#FFFC0000" FontSize="26" FontStyle="Italic"></Label>
+                    </StackPanel>
+                 
+                </StackPanel>
+            </StackPanel>
+      
+        </Grid>
+    </Viewbox>
+</Window>

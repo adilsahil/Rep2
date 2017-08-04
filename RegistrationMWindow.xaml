@@ -1,0 +1,135 @@
+﻿<Window x:Class="UIDummy.RegistrationMWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RegistrationMWindow"  
+        xmlns:UICantainer="clr-namespace:UIContainer.Registration;assembly=UIContainer" 
+        Height="748" Width="1428" Background="#FF0D7190" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/UIControls;component/ControlStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Viewbox Height="667">
+        <Grid Height="748" Width="1428" Background="White">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,69,323,35" HorizontalAlignment="Right" Width="907">
+                <TabControl BorderBrush="#00000000" Height="Auto" Width="890">
+                    <TabItem Name="tbItemMain" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"></TabItem>
+                </TabControl>
+            </ScrollViewer>
+            <StackPanel Height="78" VerticalAlignment="Top" Orientation="Horizontal" Background="#FF58B6C3">
+            <Label Content="Kameda HIS  Y A S A S I I " FontFamily="Cambria" FontSize="26" Foreground="White" Height="79" VerticalContentAlignment="Center"></Label>
+            <Canvas  ClipToBounds="True" Name="canMain" Width="828">
+            <TextBlock x:Name="_box" FontSize="20"  Text="WELCOME TO HIS....." Width="820" Foreground="#FFD8D8D8" Height="34" VerticalAlignment="Center" Canvas.Top="24">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform x:Name="AnimatedTranslateTransform" X="0" Y="0" />
+                </TextBlock.RenderTransform><TextBlock.Triggers>
+        <EventTrigger RoutedEvent="TextBlock.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+                Storyboard.TargetName="AnimatedTranslateTransform" 
+                Storyboard.TargetProperty="X"
+                From="600" To="-300" Duration="0:0:5" 
+                AutoReverse="False" RepeatBehavior="Forever" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </TextBlock.Triggers>
+            </TextBlock>
+            </Canvas>
+            <StackPanel Orientation="Vertical" Width="121" Name="stkLogin" >
+                <Label Height="13"></Label>
+                <Image Source="/UIControls;component/IMAGES/usr3.png" Stretch="Fill" Width="40" Height="40"></Image>
+                <Label Content="user name" Name="lblUserName" FontFamily="Cambria" FontSize="13" Foreground="#FFFFEE10" HorizontalContentAlignment="Center" Height="27"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Name="lblDashBoard" Content="DASHBOARD" FontFamily="Cambria" FontSize="28" Foreground="#FFFFEE10" Height="53" VerticalContentAlignment="Center" ></Label>
+                <Label Content="CTRL+D" Height="24" Foreground="#FF1DFF85" VerticalAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            </StackPanel>
+            </StackPanel>
+            <StackPanel  Margin="1125,78,-1,1" Background="#FF39627C">
+                <TreeView Background="{x:Null}" Name="tvMain" SelectedItemChanged="tvMain_SelectedItemChanged" BorderBrush="{x:Null}" Height="366">
+                    <TreeView.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}">Transparent</SolidColorBrush>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}">Black</SolidColorBrush>
+                    </TreeView.Resources>
+                    <TreeViewItem Header="REGISTRATION(CTRL+R)"  Foreground="White" Expanded="TreeViewItem_Expanded" Uid="1" Style="{StaticResource TreeViewItemStyle1}" >
+                        <TreeViewItem.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="60" >
+                                    <Label Content="REGISTRATION(CTRL+R) " Foreground="White" FontWeight="Bold" FontFamily="Segoe Print" VerticalAlignment="Center" FontSize="16" Width="250"></Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </TreeViewItem.HeaderTemplate>
+                        <TreeViewItem Header="REG" Foreground="White" Name="tviregistration" Selected="tviregistration_Selected" PreviewMouseLeftButtonDown="tviregistration_PreviewMouseLeftButtonDown">
+                            <TreeViewItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="255"  Margin="-20,0,0,0" Orientation="Horizontal" Height="60" Style="{StaticResource stkstyle}">                                      
+                                        <Image Source="/UIControls;component/IMAGES/reg2.png" Width="40" Height="40"></Image>
+                                        <Label Content="Registration" Foreground="White" FontWeight="Bold" FontFamily="Segoe Print" VerticalAlignment="Center" FontSize="16" Width="114"></Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </TreeViewItem.HeaderTemplate>
+                        </TreeViewItem>
+                    
+                    </TreeViewItem>
+                    <TreeViewItem Foreground="White"  Expanded="TreeViewItem_Expanded" Uid="2"  Style="{StaticResource TreeViewItemStyle1}">
+                        <TreeViewItem.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="60" >
+                                    <Label Content="REG-DETAILS" Foreground="White" FontWeight="Bold" FontFamily="Segoe Print" VerticalAlignment="Center" FontSize="16" Width="250"></Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </TreeViewItem.HeaderTemplate>
+                        <TreeViewItem Header="Reg Det" Foreground="White" Name="tviRegDetails"  Selected="tviRegDetails_Selected" PreviewMouseLeftButtonDown="tviRegDetails_PreviewMouseLeftButtonDown">
+                            <TreeViewItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="255"  Margin="-20,0,0,0" Orientation="Horizontal" Height="60" Style="{StaticResource stkstyle}">
+                                        <Image Source="/UIControls;component/Images/regDet.jpg" Width="40" Height="40"></Image>
+                                        <Label Content="REG DET" Foreground="White" FontWeight="Bold" FontFamily="Segoe Print" VerticalAlignment="Center" FontSize="16" Width="114"></Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </TreeViewItem.HeaderTemplate>
+                            
+                        </TreeViewItem>                       
+                    </TreeViewItem>
+                    <TreeViewItem Header="LIST VIEW SAMPLE" Foreground="White"  Expanded="TreeViewItem_Expanded" Uid="3"  Style="{StaticResource TreeViewItemStyle1}">
+                        <TreeViewItem.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="60" >
+                                    <Label Content="List View Sample" Foreground="White" FontWeight="Bold" FontFamily="Segoe Print" VerticalAlignment="Center" FontSize="16" Width="250"></Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </TreeViewItem.HeaderTemplate>
+                        <TreeViewItem Header="ListView" Foreground="White"  Name="tviLv" PreviewMouseLeftButtonDown="tviLv_PreviewMouseLeftButtonDown">
+                            <TreeViewItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="255"  Margin="-20,0,0,0" Orientation="Horizontal" Height="60" Style="{StaticResource stkstyle}">
+                                        <Image Source="/UIControls;component/Images/regDet.jpg" Width="40" Height="40"></Image>
+                                        <Label Content="LIST VIEW" Foreground="White" FontWeight="Bold" FontFamily="Segoe Print" VerticalAlignment="Center" FontSize="16" Width="114"></Label>
+                                       
+                                    </StackPanel>
+                                </DataTemplate>
+                            </TreeViewItem.HeaderTemplate>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+            </StackPanel>
+            <Image Margin="1124,554,0,86" Source="/UIControls;component/IMAGES/Logo.png" Stretch="Fill"></Image>
+            <StackPanel Margin="1124,0,-1,13" Height="67" VerticalAlignment="Bottom">
+                <StackPanel  Height="8" Background="#FFCA0000" HorizontalAlignment="Left" Width="310" ></StackPanel>
+                <Label Height="4"></Label>
+                <StackPanel Height="8" Background="#FF33A9AD" HorizontalAlignment="Left" Width="310"></StackPanel>
+                <Label Height="4"></Label>
+                <StackPanel Height="8" Background="#FFC00000" HorizontalAlignment="Left" Width="310"></StackPanel>
+            </StackPanel>
+          
+            <StackPanel Height="83" Margin="1124,465,0,0" Name="stackPanel1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300">
+                <Label Name="lblDateTime" Content="" Height="85" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="22" FontWeight="Bold" Foreground="#FF16A0AA" FontStyle="Italic" FontFamily="Shruti" Width="280"></Label>
+            </StackPanel>
+            <UICantainer:StickyContainer x:Name="stickyContainer" Margin="-39,80,929,16"></UICantainer:StickyContainer>
+        </Grid>
+    </Viewbox>
+</Window>
