@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="UIControls.UserControls.PatChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"        
+             xmlns:my="clr-namespace:System.Windows.Controls.Primitives;assembly=PresentationFramework"
+        
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="570">
+    <!--<UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/UIControls;component/ControlStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>-->
+    <Grid Width="474" Height="423">
+           <!--xmlns:chart="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             xmlns:chartControl="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        <chartControl:Chart  Name="ColumnChart" Title="Todays Appointment"      VerticalAlignment="Top" Height="407">
+            <chartControl:Chart.Axes>
+                <chartControl:LinearAxis Orientation="Y" ShowGridLines="True" x:Name="myYAxis"    Title="USER NAME"/>
+            </chartControl:Chart.Axes>
+            <chartControl:Chart.Series>
+                <chartControl:ColumnSeries Name="clmSer" ItemsSource="{Binding ColumnList}"    IndependentValuePath="UserName"  IsSelectionEnabled="True"   DependentValuePath="UserId"/>
+            </chartControl:Chart.Series>
+        </chartControl:Chart>-->
+    </Grid>
+</UserControl>
