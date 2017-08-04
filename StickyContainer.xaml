@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="UIContainer.Registration.StickyContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              xmlns:UIControls="clr-namespace:UIControls.UserControls;assembly=UIControls" 
+    xmlns:Command="clr-namespace:UIControls.Common;assembly=UIControls"
+             d:DesignHeight="531" d:DesignWidth="471">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="Command:Commands.FormatSaveDetails"
+                        Executed="CmdFormatSaveDetails_Executed"/>
+        <CommandBinding Command="Command:Commands.FormatClearDetails"
+                        Executed="CmdClearExecuted"/>
+    </UserControl.CommandBindings>
+    <Grid>
+        <UIControls:HIsticky x:Name="Histicky" Width="400"></UIControls:HIsticky>
+    </Grid>
+</UserControl>

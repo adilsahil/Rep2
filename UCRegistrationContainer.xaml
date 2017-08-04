@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="UIContainer.Registration.UCRegistrationContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:UIControls="clr-namespace:UIControls.UserControls;assembly=UIControls" 
+               xmlns:Command="clr-namespace:UIControls.Common;assembly=UIControls"
+             mc:Ignorable="d" 
+            d:DesignHeight="300" d:DesignWidth="462">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonFocusVisual">
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Rectangle SnapsToDevicePixels="true"
+                               Margin="3"
+                               Stroke="Black"
+                               StrokeDashArray="1 2"
+                               StrokeThickness="1" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <LinearGradientBrush x:Key="ButtonNormalBackgroundFill"
+                         EndPoint="0.5,1"
+                         StartPoint="0.5,0">
+                <GradientStop Color="#FFFFFFFF"
+                      Offset="0" />
+                <GradientStop Color="#FFF0F0EA"
+                      Offset="0.9" />
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="ButtonBorder"
+                     Color="#FF003C74" />
+            <Style x:Key="ExpandBar"
+           TargetType="{x:Type ToggleButton}">
+                <Setter Property="FocusVisualStyle"
+                Value="{StaticResource ButtonFocusVisual}" />
+                <Setter Property="Background"
+                Value="{StaticResource ButtonNormalBackgroundFill}" />
+                <Setter Property="BorderBrush"
+                Value="{StaticResource ButtonBorder}" />
+                <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+                <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+                <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Grid Width="10"
+                          Height="Auto">
+                                <Rectangle MinWidth="10"
+                                   Stroke="{x:Null}"
+                                   RadiusX="2"
+                                   RadiusY="2"
+                                   x:Name="rectangle">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint="3,0.408"
+                                                     StartPoint="-1.3,0.408">
+                                            <GradientStop Color="#FF000000"
+                                                  Offset="0.281" />
+                                            <GradientStop Color="#FFC5CCCA"
+                                                  Offset="0.438" />
+                                            <GradientStop Color="#FFFFFFFF"
+                                                  Offset="1" />
+                                            <GradientStop Color="#FF000000"
+                                                  Offset="0.571" />
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <ContentPresenter VerticalAlignment="Center"
+                                          Height="Auto" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsKeyboardFocused"
+                                 Value="true" />
+                                <Trigger Property="IsChecked"
+                                 Value="true">
+                                    <Setter Property="Fill"
+                                    TargetName="rectangle">
+                                        <Setter.Value>
+                                            <LinearGradientBrush EndPoint="2.7,0.408"
+                                                         StartPoint="-1.3,0.408">
+                                                <GradientStop Color="#FF000000"
+                                                      Offset="0" />
+                                                <GradientStop Color="#FF1AD49F"
+                                                      Offset="0.531" />
+                                                <GradientStop Color="#FFFFFFFF"
+                                                      Offset="1" />
+                                                <GradientStop Color="#FF000000"
+                                                      Offset="0.259" />
+                                                <GradientStop Color="#FF040002"
+                                                      Offset="0.629" />
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsEnabled"
+                                 Value="false">
+                                    <Setter Property="Foreground"
+                                    Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <BeginStoryboard>
+                <Storyboard>                  
+                    <DoubleAnimation Storyboard.TargetProperty="Height" From="0" To="600" Duration="0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="Command:Commands.FormatSaveDetails"
+                        Executed="CmdFormatSaveDetails_Executed"/>
+        <CommandBinding Command="Command:Commands.FormatClearDetails"
+                        Executed="CmdClearExecuted"/>
+        <CommandBinding Command="Command:Commands.FormatDeleteDetails"
+                        Executed="CmdDelete_Executed"/>
+    </UserControl.CommandBindings>
+    <Grid x:Name="grdMainGrid" >
+        <UIControls:RegistrationMain x:Name="UiReg" Margin="0,0,-59,0"></UIControls:RegistrationMain>
+    </Grid>
+</UserControl>
