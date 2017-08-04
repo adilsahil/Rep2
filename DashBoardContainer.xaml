@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="UIContainer.Dash.DashBoardContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:UIControls="clr-namespace:UIControls.UserControls;assembly=UIControls"
+             xmlns:Command="clr-namespace:UIControls.Common;assembly=UIControls"   
+              mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <!--<DoubleAnimation Storyboard.TargetProperty="Width" From="0" To="1200" Duration="0:0:0" />-->
+                    <DoubleAnimation Storyboard.TargetProperty="Height" From="0" To="800" Duration="0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Viewbox>
+        <Grid x:Name="grdMainGrid" >
+            <UIControls:MainDash></UIControls:MainDash>
+        </Grid>
+    </Viewbox>
+</UserControl>
